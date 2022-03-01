@@ -1,0 +1,13 @@
+#! /bin/bash
+if test $# = 0; then
+    config=debug
+else
+  config=$1
+fi
+logfile=buildlog
+premake5 gmake2
+make config=$config 2> $logfile
+size=$(wc -c $logfile | awk '{print $1}')
+if test $size != 0; then
+  open $logfile
+fi

@@ -1,0 +1,8 @@
+#! /bin/bash
+if test $# = 0; then
+    config=Debug
+else
+  config=$1
+fi
+clear
+./bin/bin/$config*/GrammarLP
